@@ -44,6 +44,13 @@ jobs:
 
       - name: Commit files
         run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
           git add --all
           git commit -am "Download data" --author 'Ignacio Rossi <ignacio.rvm@gmail.com>'
-          git push
+
+      - name: Git push
+        run: |
+          git push "https://${GITHUB_ACTOR}:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
