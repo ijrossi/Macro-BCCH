@@ -38,9 +38,10 @@ jobs:
         shell: Rscript {0}
 
       - name: Generate data and rmd
-        shell: Rscript {0}
         run: |
-          dir.create("R/TEST")
+          a <- paste0(Sys.time(), ".txt")
+          writeLines(a, "R/a")
+        shell: Rscript {0}
 
       - name: Commit files
         run: |
