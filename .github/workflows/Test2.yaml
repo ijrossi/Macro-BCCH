@@ -49,9 +49,6 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add --all
           git commit -am "Download data" --author 'Ignacio Rossi <ignacio.rvm@gmail.com>'
-
-      - name: Git push
-        run: |
-          git push "https://${GITHUB_ACTOR}:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+          git push
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
