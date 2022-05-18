@@ -38,9 +38,11 @@ jobs:
         shell: Rscript {0}
 
       - name: Generate data and rmd
+        env:
+          USER_TEST: ${{ secrets.USER_TEST }}
         run: |
           a <- paste0(Sys.time(), ".txt")
-          writeLines(a, "R/a")
+          writeLines(USER_TEST, "data/USER_TEST.txt")
         shell: Rscript {0}
 
       - name: Commit files
