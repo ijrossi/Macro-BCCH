@@ -41,6 +41,7 @@ jobs:
         env:
           USER_TEST: ${{ secrets.USER_TEST }}
         run: |
+          USER_TEST <- Sys.getenv("USER_TEST")
           a <- paste0(Sys.time(), ".txt")
           writeLines(USER_TEST, "data/USER_TEST.txt")
         shell: Rscript {0}
