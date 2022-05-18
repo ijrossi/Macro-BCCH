@@ -43,6 +43,7 @@ jobs:
         run: |
           USER_TEST <- Sys.getenv("USER_TEST")
           a <- paste0(Sys.time(), ".txt")
+          dir.create("data")
           writeLines(USER_TEST, "data/USER_TEST.txt")
         shell: Rscript {0}
 
